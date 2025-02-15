@@ -12,4 +12,6 @@ jobs:
         run: docker build -t thesaurus5689/devops-qrcode-api:latest ./api/
 
       - name: Push Docker image
-        run: docker push thesaurus5689/devops-qrcode-api:latest
+        run: |
+          docker login -u thesaurus5689 -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker push thesaurus5689/devops-qrcode-api:latest
