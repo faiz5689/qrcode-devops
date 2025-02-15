@@ -9,9 +9,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t thesaurus5689/devops-qrcode-api:latest ./api/
+        run: |
+          docker build -t thesaurus5689/devops-qrcode-api:latest ./api/
+          docker build -t thesaurus5689/devops-qrcode-frontend:latest ./front-end-nextjs/
 
       - name: Push Docker image
         run: |
           docker login -u thesaurus5689 -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push thesaurus5689/devops-qrcode-api:latest
+          docker push thesaurus5689/devops-qrcode-frontend:latest
