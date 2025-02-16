@@ -1,5 +1,5 @@
 # Pull the base image as python 3.9
-FROM python:3.9
+FROM python:3.10
 
 # Set the working directory
 WORKDIR /usr/src/app
